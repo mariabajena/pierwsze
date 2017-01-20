@@ -1,6 +1,6 @@
 change 1
 change 2
 change 4
-fdsfdsf
+linia czwarta
 change 6
 change 9
