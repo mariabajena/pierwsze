@@ -1,4 +1,4 @@
-change 1
+﻿change 1
 change 2
 change 4
 linia czwarta
@@ -8,4 +8,4 @@ change 9
 WITAM
 
 Marysia to ja
-Cześć Janek
+NIE!
