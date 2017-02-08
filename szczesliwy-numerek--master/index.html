@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>Lotto</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<link rel="stylesheet" href="style.css" type="text/css">
+	</head>
+	<body>
+		<section class="welcome">
+			<div class="row">
+				<div class="letter">
+					L
+				</div>
+				<div class="letter blue">
+					O
+				</div>
+				<div class="letter">
+					T
+				</div>
+				<div class="letter">
+					T
+				</div>
+				<div class="letter blue">
+					O
+				</div>
+			</div>
+			<div class="row nowaGra">
+				<div id="hide"><button id="nowaGra">Nowa Gra</button></div>
+			</div>
+			<div class="liczby_tablica">
+				<h4 id="napisWytypujLiczby"></h4>
+				<div id="liczby_tablica"></div>
+				<div id="zaDuzoZaznaczonych"></div>
+				<button id="poWytypowaniu">Zatwierdź</button>
+			</div>
+			<div class="szczesliwy">
+				<h4>Teraz wpisz swój szczęśliwy numerek:</h4>
+				<input id="numer" value="" type="text">
+				<button id="guzik">Zatwierdź i losuj 6 liczb</button>
+			</div>
+		</section>
+		<div id="wynik"></div>
+		<ul id="liczby"></ul>
+		<div id="szczesliwy"></div>
+		<div id="ileTrafionych"></div>
+		<script src="index.js"></script>
+	</body>
+</html>
