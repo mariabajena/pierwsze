@@ -91,6 +91,8 @@ function liczbaKliknieta() {
     $('#napisWytypujLiczby').html('Wytypowane przez Ciebie liczby:');
     document.getElementById("napisWytypujLiczby").style.fontSize = "small";
     document.getElementById("poWytypowaniu").style.display = "none";
+
+    $('.szczesliwy').addClass('visible');
 }
 
 //utworzenie tablicy z zaznaczonych liczb

@@ -73,7 +73,7 @@ body {
 
 .liczby_tablica {
 	position: relative;
-	width: 100%;
+	display: inline-block;
 }
 
 .liczby_tablica h4 {
@@ -124,7 +124,16 @@ body {
 }
 
 .szczesliwy {
-	position: absolute;
-	height: 800px;
 	color: white;
+    color: white;
+    display: inline-block;
+    vertical-align: top;
+    opacity: 0;
+    transform: translateX(300px);
+    transition: .5s;
+}
+
+.szczesliwy.visible {
+	opacity: 1;
+	transform: translateX(0);
 }
