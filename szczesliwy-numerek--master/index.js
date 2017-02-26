@@ -1,10 +1,6 @@
-document.getElementById("poWytypowaniu").style.display = "none";
-
 function kliknietyGuzik() {
   var numer=sprawdzNumer ();
   if (numer==null) {return;}
-
-  zaznaczoneDoTablicy();
 
   var liczby = losuj6(1,42);
   wypiszElementyListy(liczby);
@@ -51,7 +47,7 @@ function wypiszNumery () {
 
     $guzik.click(liczbaKliknieta);
   }
-  document.getElementById("poWytypowaniu").style.display = "block";
+  $('#poWytypowaniu').css('display', 'block');
 }
 
 function schowajGuzik() {
@@ -60,22 +56,17 @@ function schowajGuzik() {
 
 function liczbaKliknieta() {
   var kliknietyGuzik = $(this);
-  var czyZaznaczony = kliknietyGuzik.hasClass('active');
 
   $('#zaDuzoZaznaczonych').html('');
 
-  if (czyZaznaczony) {
-    kliknietyGuzik.removeClass('active');
-    return;
-  }
-
-  var numItems = $('.active').length;
+  var numItems = $('#liczby_tablica .active').length;
   if (numItems==6) {
     $('#zaDuzoZaznaczonych').html('Juz zaznaczyleś 6 liczb.');
+	kliknietyGuzik.removeClass('active');
     return;
   }
 
-  kliknietyGuzik.addClass('active');
+  kliknietyGuzik.toggleClass('active');
 }
 
 // function przesunTablice () {
@@ -84,8 +75,11 @@ function liczbaKliknieta() {
 // }
 
   function przesunTablice() {
-    document.getElementById("liczby_tablica").style.transform = ("translateX(-450px) scale(0.8,0.8)");
-    document.getElementById("liczby_tablica").style.transition = ("all 1s");
+    $('#liczby_tablica').css({
+        'transition': 'translateX(-450px) scale(0.8,0.8)',
+        'transition': 'all 1s'
+    });
+
     document.getElementById("napisWytypujLiczby").style.transform = ("translateX(-450px)");
     document.getElementById("napisWytypujLiczby").style.transition = ("all 1s");
     $('#napisWytypujLiczby').html('Wytypowane przez Ciebie liczby:');
@@ -106,10 +100,10 @@ function zaznaczoneDoTablicy (){
 
 //losuje 6 liczb z przedziału 1-42
 function losuj6 (min, max) {
-  var liczby=[] ;
+  var liczby=[];
     while (liczby.length<6) {
       var liczba=Math.floor(Math.random()*(max-min+1)+min);
-      if (liczby.indexOf(liczba)>=0) {
+      if (liczby.indexOf(liczba)!=-1) {
         continue;
       }
       liczby.push(liczba);
@@ -118,8 +112,8 @@ function losuj6 (min, max) {
 }
 
 function wypiszElementyListy(liczby) {
-  $('#liczby').html('')
-  for (i=0; i<liczby.length; i++) {  
+  $('#liczby').html('');
+  for (i=0; i<liczby.length; i++) {
     $('#liczby').append('<li>'+ liczby[i] + '</li>');
   }
 }
@@ -129,9 +123,10 @@ function czyTrafiony(liczby,numer) {
 }
 
 function wypiszCzyTrafiony(liczby,numer) {
-  $('#szczesliwy').html('');
   if(czyTrafiony(liczby,numer)) {
     $('#szczesliwy').html('Super, trafiłeś szczęśliwy numerek, czyli ' + numer);
+  } else {
+    $('#szczesliwy').html('');
   }
 }
 
